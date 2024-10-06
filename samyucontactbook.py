@@ -1,17 +1,17 @@
 def main(): 
     choice()
     while True:
-        decision = str(input("Do you want to do anything else? Yes or No"))
-        if decision == "Yes": 
+        decision = str(input("Do you want to do anything else? Yes or No")).strip().lower()
+        if decision == "yes": 
             choice()
-        elif decision == "No":
+        elif decision == "no":
             break
         else:
             "Invalid Answer"
 
    
 def choice():
-    decision = str(input("Do you want to add, delete, or search contact info? "))
+    decision = str(input("Do you want to add, delete, or search contact info? ")).strip().lower()
     if decision == "add":
         addContact()
     elif decision == "delete":
@@ -47,7 +47,6 @@ def deleteContact():
                         
 def searchContact():
     search = str(input("What contact do you want to search for? "))
-    names = []
     with open("contactinfo.txt", "r") as file:
         num = 0
         for line in file:
